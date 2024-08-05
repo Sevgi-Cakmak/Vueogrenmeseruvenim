@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js | Yazilimbilimi</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+     <input type="text" v-model="age">
+     <p>Javascript:  {{ age >= 18 ? 'Reşittir' : 'Değildir...'}}</p>
+     <p>Method:  {{ ageWriter() }}</p>
+     <hr>
+     <p>Computed: {{ ageWriterComp }} </p> 
+     <p>  {{ sayi }} </p>
+     <button @click="sayi++">Sayi Arttir..</button>
+    </div>
+
+    <script>
+    new Vue({
+       el: "#app",
+       data: {
+        age: 0,
+        sayi: 0
+       },
+       methods: {
+       ageWriter(){
+       console.log("Metod Çalişdi...")
+       return this.age >= 18 ? 'Reşittir' : 'Değildir...'
+    }
+        },
+        computed: {
+        ageWriterComp() {
+            console.log("Computed Çalişti...")
+            return this.age >= 18 ? 'Reşittir' : 'Değildir...'
+    }
+        },
+        watch : {
+            age(newValue,oldValue){
+            console.log("New : " +newValue)
+            console.log("Old : " +oldValue)
+            }
+
+        }
+    });
+    </script>
+</body>
+</html>

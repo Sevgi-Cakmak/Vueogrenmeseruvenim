@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v-bind font size </title>
+    <style>
+    #app > div {
+      width: 200px;
+      padding: 20px;
+      border: dashed black 1px;
+      background-color: lightcoral;
+    }
+    </style>
+</head>
+<body>
+    <h1>'v-bind' Yazi tipi boyutu örneği</h1>
+
+    <p>Tarayici, yazi tipi boyutunu Vue  örneğineki  'boyut' değerine göre ayarlar.</p>
+
+    <div id="app">
+     <div v-bind:style="{ fontSize: size }">Tipik örnek</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    size: '28px'
+                }
+            }
+        })
+
+        app.mount('#app')
+    </script>
+</body>
+</html>

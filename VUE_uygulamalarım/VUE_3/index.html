@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'v-bind' görüntü kaynagi örneği</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- v-bind = bağlama  -->
+    <style>
+    #app {
+        border: dashed black 1px;
+        width: 250px;
+        padding: 0 10px 10px 10px;
+    }
+    img {
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <h1>'v-bind' görüntü kaynagi örneği</h1>
+
+    <div id="app">
+     <p>Tarayici, 'v-bind' kullanimiyla Vue örneğinden 'src' öznitelik değerini bulur.</p>
+     <img v-bind:src="url">
+    </div>
+
+    <script>
+     const app = Vue.createApp ({
+        data() {
+            return {
+        url: "img_beach3.jpg"
+        }
+        }
+     })
+
+     app.mount('#app')
+
+    </script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'v-bind' Yazi Tipi Boyutu Örneği</title>
+    <style>
+    #app > div {
+      width: 200px;
+      padding: 20px;
+      border: dashed black 1px;
+      background-color: lightcoral;
+    }
+    </style>
+</head>
+<body>
+   <h1>'v-bind' Yazi Tipi Boyutu Örneği</h1> 
+
+   <p>Tarayici, yazi tipi boyutunu Vue örneğindeki 'boyut' sayi değerine göre piksel cinsinden ayarlar.</p>
+
+   <div id="app">
+    <div v-bind:style="{ fontSize: size + 'px' }">Metin Örneği</div>
+   </div>
+
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script>
+    const app = Vue.createApp ({
+        data() {
+            return {
+                size: 28
+            }
+        }
+    })
+    app.mount('#app')
+   </script>
+</body>
+</html>

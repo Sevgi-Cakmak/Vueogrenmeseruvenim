@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind arka plan rengi</title>
+    <style>
+      #app > div {
+        width: 200px;
+        padding: 20px;
+        border: dashed black 1px;
+      }
+      .imgClass {
+        background-color: lightcoral;
+      }  
+    </style>
+</head>
+<body>
+    <h1>Örnek: sinifi değiştirmek için kullanilan 'v-bind'</h1>
+    <p>Tarayici, sinif adini, Vue örneği içindeki 'className' özelliğinde depolanan değere ayarlar.</p>
+    <div id="app">
+    <div v-bind:class="className" >Arka plan rengiyle görselleştirilen önem</div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                className: 'imgClass'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

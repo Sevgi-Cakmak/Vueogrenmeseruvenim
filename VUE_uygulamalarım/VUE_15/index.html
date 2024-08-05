@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first Vue page</title>
+    <!--  v-for = için  -->
+    <style>
+     #app > div {
+    border: solid black 1px;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    }
+    img {
+        width: 70px;
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+  
+    
+    <div id="app">
+        <h1 v-if="false">Example: 'v-for' to create li-tags</h1>
+    
+        <p v-show="false">In this example 'v-for' creates an 'li' tag with the food name for each food item in the Vue instance array.</p>
+
+
+    <ol>
+        <li v-for="x in manyFoods">{{ x }}</li>
+    </ol>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    manyFoods: [
+                        'Burrito',
+                        'Salad',
+                        'Cake',
+                        'Soup',
+                        'Fish',
+                        'Pizza',
+                        'Rice'
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+
+
+</body>
+</html>

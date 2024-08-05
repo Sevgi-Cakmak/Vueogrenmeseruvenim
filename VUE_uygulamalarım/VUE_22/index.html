@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Food İmage</title>
+    <!--  v-on baitçe @ bu şekildedir -->
+    <style>
+        #app {
+            border: dashed black 1px;
+            width: 220px;
+            padding:20px;
+        }
+        #app > img {
+            float: right;
+            width: 55%;
+        }
+        li:hover {
+            cursor: pointer;
+            background-color: rgb(224,224,224);
+        }
+        #app > ol {
+        list-style-type: none;
+        margin:0;
+        padding: 0;
+        }
+        #app  li {
+        padding-left: 6px;
+        border-radius: 5px;
+        width: 70px;
+        }
+    </style>
+</head>
+<body>
+    
+
+<h1>Example: Show Food İmage</h1>
+
+<p>Click on a food name below to see an image of it.</p>
+
+<div id="app">
+<img v-bind:src="imgUrl">
+<ol>
+    <li v-for="food in manyFoods" v-on:click="imgUrl = food.url">
+        {{ food.name }}
+    </li>
+</ol>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          imgUrl: 'img/pizza.svg',
+          manyFoods: [
+            {name: 'Burrito', url: 'img/burrito.svg'},
+            {name: 'Burger', url: 'img/burger.svg'},
+            {name: 'cupcake', url: 'img/cupcake.svg'},
+            {name: 'donut', url: 'img/donut.svg'},
+            {name: 'pancakes', url: 'img/pancakes.svg'},
+            {name: 'Pizza', url: 'img/pizza.svg'},
+            {name: 'chicken', url: 'img/roast-chicken.svg'}
+        ]
+        }
+      }
+    })
+   app.mount('#app')
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlk vue sayfam</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        #app {
+            display: inline-block;
+            padding: 10px;
+            font-size: x-large;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vue Örneği</h1>
+
+    <p>Mesai, id="app" ile div içine  {{ message }} yazilarak Vue örneği içindeki 'data'dan alinir.</p>
+
+    <div id="app">
+     {{ message }}
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Merhaba Dunya!"
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
+
+
+
+

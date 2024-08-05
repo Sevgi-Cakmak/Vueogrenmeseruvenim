@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js Directives Örnek</title>
+  <style>
+    /* Stil tanımlamaları */
+    #app {
+      display: inline-block;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+    }
+    .highlight {
+      background-color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <h1>{{ message }}</h1>
+  
+  <!-- Ürünleri listeleyen bir liste -->
+  <ul>
+    <li v-for="(product, index) in products" :key="index" 
+        v-bind:class="{ 'highlight': product.quantity > 5 }">
+      {{ product.name }} ({{ product.quantity }})
+      <button v-on:click="increaseQuantity(index)">Artır</button>
+      <button v-on:click="decreaseQuantity(index)">Azalt</button>
+      <button v-on:click="deleteProduct(index)">Sil</button>
+    </li>
+  </ul>
+  
+  <!-- Yeni ürün eklemek için girdi alanı -->
+  <input type="text" v-model="newProduct" placeholder="Yeni ürün adı...">
+  <button v-on:click="addProduct">Ekle</button>
+  
+  <!-- Yalnızca bir durum sağlandığında görünen bir öğe -->
+  <p v-show="showAdditionalInfo">Ekstra bilgi burada görünecek.</p>
+  
+  <!-- Belirli bir duruma bağlı olarak görünen bir öğe -->
+  <p v-if="products.length > 0">Ürünler mevcut.</p>
+  <p v-else>Henüz ürün yok.</p>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        message: "Vue.js Directives Örneği",
+        products: [
+          { name: "Elma", quantity: 5 },
+          { name: "Armut", quantity: 3 },
+          { name: "Muz", quantity: 8 }
+        ],
+        newProduct: "",
+        showAdditionalInfo: false
+      };
+    },
+    methods: {
+      increaseQuantity(index) {
+        this.products[index].quantity++;
+      },
+      decreaseQuantity(index) {
+        if (this.products[index].quantity > 0) {
+          this.products[index].quantity--;
+        }
+      },
+      addProduct() {
+        if (this.newProduct.trim() === "") {
+          return;
+        }
+        this.products.push({ name: this.newProduct, quantity: 0 });
+        this.newProduct = "";
+      },
+      deleteProduct(index) {
+        this.products.splice(index, 1);
+      }
+    }
+  });
+
+  app.mount("#app");
+</script>
+
+</body>
+</html>
